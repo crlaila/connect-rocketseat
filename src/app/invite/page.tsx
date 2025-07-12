@@ -1,12 +1,13 @@
-import { BadgeCheck, Copy, Link, Medal, MousePointerClick } from "lucide-react";
 import Image from "next/image";
-import { IconButton } from "@/components/icon-button";
-import { InputField, InputIcon, InputRoot } from "@/components/input";
-import { Ranking } from "./ranking";
+import { Ranking } from "./components/ranking";
 
 import logo from "../../assets/logo.svg";
+import { Stats } from "./components/stats";
+import { InviteLinkInput } from "./components/invite-link-input";
 
-export default function Contato() {
+export default function InvitePage() {
+  const inviteLink = "http://localhost:3000/invet/36238";
+
   return (
     <div className="min-h-dvh flex items-center justify-between gap-16 flex-col md:flex-row">
       <div className="flex flex-col gap-10 w-full max-w-[550px]">
@@ -32,56 +33,10 @@ export default function Contato() {
               inscrições:
             </p>
           </div>
-          <InputRoot>
-            <InputIcon>
-              <Link size={20} />
-            </InputIcon>
-
-            <InputField
-              defaultValue={"http://localhost:3000/invet/382463246238"}
-              readOnly
-            />
-            <IconButton className="">
-              <Copy size={20} />
-            </IconButton>
-          </InputRoot>
-
-          <div className="grid gap-3 grid-cols-3">
-            <div className="bg-gray-700 border border-gray-600 px-4 py-7 flex flex-col items-center justify-center gap-1 rounded-xl relative">
-              <span className="font-heading text-2xl font-semibold text-gray-200 leading-none">
-                1042
-              </span>
-              <span className="text-gray-300 text-sm  leading-none text-center">
-                Acessos ao link
-              </span>
-              <MousePointerClick
-                size={20}
-                className="text-purple absolute top-3 left-3"
-              />
-            </div>
-            <div className="bg-gray-700 border border-gray-600 px-4 py-7 flex flex-col items-center justify-center gap-1 relative rounded-xl">
-              <span className="font-heading text-2xl font-semibold text-gray-200 leading-none">
-                1042
-              </span>
-              <span className="text-gray-300 text-sm  leading-none text-center">
-                Inscrições feitas
-              </span>
-              <BadgeCheck
-                size={20}
-                className="text-purple absolute top-3 left-3"
-              />
-            </div>
-            <div className="bg-gray-700 border border-gray-600 px-4 py-7 flex flex-col items-center justify-center gap-1 relative rounded-xl">
-              <span className="font-heading text-2xl font-semibold text-gray-200 leading-none">
-                3°
-              </span>
-              <span className="text-gray-300 text-sm  leading-none text-center">
-                Posição no ranking
-              </span>
-              <Medal size={20} className="text-purple absolute top-3 left-3" />
-            </div>
-          </div>
+          <InviteLinkInput inviteLink={inviteLink} />
         </div>
+
+        <Stats />
       </div>
 
       <Ranking />
